@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Vegan meals around your food exclusions, with nutrient checks and daily costs."><title>Vegan Without - meal and cost planner</title></head>
+<body>
+<main>
+<form id="planner" novalidate>
+<h1><label for="foods">I would be vegan but I can't eat</label> <input id="foods" name="foods" type="text" size="20" placeholder="soy, peanuts, gluten" autocomplete="off" aria-label="Foods you cannot eat, separated by commas"></h1>
+<div id="content" hidden>
+<div id="matches" aria-live="polite"></div>
+<details id="assumptions"><summary>Assumptions</summary>
+<p><label for="energy">Daily calories</label> <select id="energy"><option value="1600">1,600 kcal</option><option value="1800">1,800 kcal</option><option selected value="2000">2,000 kcal</option><option value="2200">2,200 kcal</option><option value="2400">2,400 kcal</option><option value="2800">2,800 kcal</option><option value="3200">3,200 kcal</option></select></p>
+<p><label for="profile">Adult reference (19-50)</label> <select id="profile"><option value="female">Female</option><option value="male" selected>Male</option></select></p>
+<p><label for="weight">Weight (kg)</label> <input id="weight" type="number" min="35" max="250" step="1" value="70" required></p>
+<details><summary>Daily supplements</summary><p><label for="b12">B12 (µg/day)</label> <input id="b12" type="number" min="0" max="2000" step="0.1" value="10" required></p><p><label for="vitd">Vitamin D (µg/day)</label> <input id="vitd" type="number" min="0" max="100" step="0.1" value="15" required></p><p><label for="iodine">Iodine (µg/day)</label> <input id="iodine" type="number" min="0" max="1100" step="1" value="150" required></p><p><label for="suppcost">Supplement cost/day</label> <input id="suppcost" type="number" min="0" max="10000" step="0.01" value="0.20" required></p></details>
+</details>
+<div id="message" role="status" aria-live="polite"></div>
+<section id="results" hidden aria-labelledby="result-title">
+<h2 id="result-title">Your plan</h2>
+<h3>Meals</h3><div id="meals"></div>
+<h3>Daily supplements</h3><div id="supplements"></div>
+
+<details><summary>Nutrient breakdown</summary><div id="nutrients"></div></details>
+<details><summary>Shopping list and costs</summary><div id="shopping"></div></details>
+</section>
+<footer>
+<ul>
+<li><a href="https://www.nhs.uk/live-well/eat-well/how-to-eat-a-balanced-diet/the-vegan-diet/">NHS: vegan diets</a></li>
+<li><a href="https://ods.od.nih.gov/HealthInformation/nutrientrecommendations.aspx">NIH: nutrient targets</a></li>
+<li><a href="https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/">NIH: iron</a></li>
+<li><a href="https://ods.od.nih.gov/factsheets/Zinc-Consumer/">NIH: zinc</a></li>
+<li><a href="https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/">NIH: B12</a></li>
+<li><a href="https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/">NIH: omega-3</a></li>
+<li><a href="https://fdc.nal.usda.gov/">USDA: FoodData Central</a></li>
+<li><a href="https://www.vegansociety.com/resources/nutrition-and-health/nutrients/vitamin-b12/what-every-vegan-should-know-about-vitamin-b12">Vegan Society: daily B12</a></li>
+<li><a href="https://ods.od.nih.gov/factsheets/VitaminD-Consumer/">NIH: vitamin D</a></li>
+<li><a href="https://ods.od.nih.gov/factsheets/Iodine-Consumer/">NIH: iodine</a></li>
+</ul>
+</footer>
+</div>
+</form>
+</main><script src="engine.js"></script><script src="app.js"></script>
+</body></html>
